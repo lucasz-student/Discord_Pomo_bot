@@ -11,7 +11,9 @@
 <p>By default, the bot adds a study category to the server, which is required for the use of most commands. The bot applies the Pomodoro study method: you completely focus for 25 minutes, but get a 5 minute break afterward. This 30 minute session is 1 'Pomodoro.' After 4 pomodoros, you get a long break of 15 minutes.</p>
 
 ### Other 
-<a href="https://discordpy.readthedocs.io/en/stable/api.html#guilds">Discord.py API reference</a> 
+<p>Here's what I used to code the bot:</p>
+<a href="https://discord.com/developers/docs/intro">Discord Developer Portal</a>
+<a href="https://discordpy.readthedocs.io/en/stable/api.html#guilds">Discord.py API reference</a>
 <p>Image Credit:
 Pomodoro free icon designed by Flat Icons https://www.flaticon.com/premium-icon/pomodoro_3696891?term=pomodoro via @flaticon</p>
 
