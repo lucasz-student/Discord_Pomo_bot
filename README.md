@@ -8,7 +8,8 @@
 
 <p>By default, the bot adds a study category to the server, which is required for the use of most commands. The bot applies the Pomodoro study method: you completely focus for 25 minutes, but get a 5 minute break afterward. This 30 minute session is 1 'Pomodoro.' After 4 pomodoros, you get a long break of 15 minutes.</p>
 <img src="./add_bot.PNG" width=300px>
-<img src="./on_join.png" width=800px>
+<img src="./on_join.png" width=850px>
+<img src="./score_board.png" width=850px>
 
 <br></br>
 ## Functions and Usage
