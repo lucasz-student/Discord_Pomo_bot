@@ -227,11 +227,11 @@ async def create_private(ctx, name="", pomodoros=1):
                 run = False
                 break
             elif count % 4 != 0:
-                await asyncio.sleep(3)
+                await asyncio.sleep(1500)
                 await text_channel.send("5 minutes left! :alarm_clock:\nYou can do it!")
-                await asyncio.sleep(3)
+                await asyncio.sleep(300)
                 await text_channel.send("Take a 5 minute break!")
-                await asyncio.sleep(3)
+                await asyncio.sleep(600)
                 await text_channel.send("Now let's focus again.:books:")
                 count = count - 1
 
