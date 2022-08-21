@@ -50,8 +50,14 @@ async def help(ctx):
     )
 
     em.add_field(
+        name="Details and Usage",
+        value="The Bot's commands create private rooms under the 'study' category, whether by yourself, or with others. Only admins, owners, and members of the 'Students' role (created upon Pomobot joining) can view the channels, unless you are targeted by the 'study_with' command.",
+        inline=False,
+    )
+
+    em.add_field(
         name="Source Code",
-        value="View and improve the source code here:",
+        value="View and improve the source code here: https://github.com/lucasz-student/Discord_Pomo_bot/blob/145085b2100f48dc6b325ecad64fbda3af436f6d/README.md",
         inline=False,
     )
     em.set_footer(
@@ -102,13 +108,13 @@ async def on_guild_join(guild):
     for channel in guild.channels:
         if channel.name == "general":
             await channel.send(
-                "'!' is my command prefix!I've created the 'study' category, which is required for bot usage\nPlease type !help for details."
+                "'!' is my command prefix! I've created the 'study' category and the 'Students' role, which is required for bot usage.\nPlease type !help for details."
             )
+    await guild.create_role(name="Students", color=discord.Colour.blue(), mentionable=True, hoist=True, reason="This role is allowed to view Pomobots rooms!")
 
 
 @bot.command(name="scoreboard")
 async def display_scoreboard(ctx):
-
     with open(f"{ctx.guild}.json", "r") as openfile:
         scores = json.load(openfile)
         scores = dict(sorted(scores.items(), key=lambda item: item[1], reverse=True))
@@ -175,11 +181,15 @@ async def create_private(ctx, name="", pomodoros=1):
                     "Need a timer by yourself? Run the '!self' command in the server."
                 )
                 return
+    for role in guild.roles: 
+        if role.name == "Students":
+            study_role = role 
 
     overwrites = {
-        guild.default_role: discord.PermissionOverwrite(read_messages=False),
+        guild.default_role: discord.PermissionOverwrite(read_messages=False, connect=False),
         author: discord.PermissionOverwrite(read_messages=True),
-        var: discord.PermissionOverwrite(read_messages=False),
+        study_role: discord.PermissionOverwrite(read_messages=True, send_messages=False),
+        var: discord.PermissionOverwrite(read_messages=True, connect=True)
     }
 
     text_channel = await guild.create_text_channel(
@@ -231,7 +241,7 @@ async def create_private(ctx, name="", pomodoros=1):
                 await text_channel.send("5 minutes left! :alarm_clock:\nYou can do it!")
                 await asyncio.sleep(300)
                 await text_channel.send("Take a 5 minute break!")
-                await asyncio.sleep(600)
+                await asyncio.sleep(900)
                 await text_channel.send("Now let's focus again.:books:")
                 count = count - 1
 
@@ -262,9 +272,16 @@ async def create_private(ctx, pomodoros=1):
 
     guild = ctx.guild
     author = ctx.author
+
+    for role in guild.roles: 
+        if role.name == "Students":
+            study_role = role 
+
+
     overwrites = {
-        guild.default_role: discord.PermissionOverwrite(read_messages=False),
+        guild.default_role: discord.PermissionOverwrite(read_messages=False, connect=False),
         author: discord.PermissionOverwrite(read_messages=True),
+        study_role: discord.PermissionOverwrite(read_messages=True, send_messages=False),
     }
 
     self_text_channel = await guild.create_text_channel(
@@ -311,7 +328,7 @@ async def create_private(ctx, pomodoros=1):
                 run = False
                 break
             elif count % 4 != 0:
-                await asyncio.sleep(15)
+                await asyncio.sleep(1500)
                 await self_text_channel.send(
                     "5 minutes left! :alarm_clock:\nWe can do it!"
                 )
