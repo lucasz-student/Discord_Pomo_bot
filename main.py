@@ -57,7 +57,7 @@ async def help(ctx):
 
     em.add_field(
         name="Source Code",
-        value="View and improve the source code here: https://github.com/lucasz-student/Discord_Pomo_bot/blob/145085b2100f48dc6b325ecad64fbda3af436f6d/README.md",
+        value="View and improve the source code here: https://github.com/lucasz-student/Discord_Pomo_bot/blob/a3fcf5920baabf0439ed09769c26c4970700b180/README.md",
         inline=False,
     )
     em.set_footer(
