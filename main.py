@@ -167,7 +167,7 @@ async def create_private(ctx, name="", pomodoros=1):
         await ctx.channel.send("```pomodoros argument must be an integer```")
     if int(pomodoros) > 16 or pomodoros < 1:
         await ctx.channel.send(
-            "```max pomodoro count is 16 ( > 8 hours)\n min pomodoro count is 1```"
+            "```max pomodoro count is 16 ( > 8 hours)\nmin pomodoro count is 1```"
         )
         return
 
