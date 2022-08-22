@@ -165,7 +165,7 @@ async def create_private(ctx, name="", pomodoros=1):
     # checks if pomodoros argument is an integers
     if type(pomodoros) != int:
         await ctx.channel.send("```pomodoros argument must be an integer```")
-    if int(pomodoros) > 16 or pomodoros < 1:
+    if int(pomodoros) > 16 or pomodoros <1:
         await ctx.channel.send(
             "```max pomodoro count is 16 ( > 8 hours)\nmin pomodoro count is 1```"
         )
@@ -193,7 +193,7 @@ async def create_private(ctx, name="", pomodoros=1):
 
     overwrites = {
         guild.default_role: discord.PermissionOverwrite(read_messages=False, connect=False),
-        author: discord.PermissionOverwrite(read_messages=True),
+        author: discord.PermissionOverwrite(read_messages=True, connect=True),
         study_role: discord.PermissionOverwrite(read_messages=True, send_messages=False),
         var: discord.PermissionOverwrite(read_messages=True, connect=True)
     }
@@ -206,9 +206,9 @@ async def create_private(ctx, name="", pomodoros=1):
     )
 
     if pomodoros == 1:
-        await text_channel.send(f"Lets study for {pomodoros} pomodoro!")
+        await text_channel.send(f"Lets study for {pomodoros} pomodoro! The timer is ticking.")
     else:
-        await text_channel.send(f"Let's study for {pomodoros} pomodoros together!")
+        await text_channel.send(f"Let's study for {pomodoros} pomodoros together! The timer is ticking.")
 
     for category in guild.categories:
         if category.name == "study":
@@ -289,7 +289,7 @@ async def create_private(ctx, pomodoros=1):
 
     overwrites = {
         guild.default_role: discord.PermissionOverwrite(read_messages=False, connect=False),
-        author: discord.PermissionOverwrite(read_messages=True),
+        author: discord.PermissionOverwrite(read_messages=True, connect=True),
         study_role: discord.PermissionOverwrite(read_messages=True, send_messages=False),
     }
 
@@ -301,9 +301,9 @@ async def create_private(ctx, pomodoros=1):
     )
 
     if pomodoros == 1:
-        await self_text_channel.send(f"Let's study for {pomodoros} pomodoro!")
+        await self_text_channel.send(f"Let's study for {pomodoros} pomodoro! The timer is ticking.")
     else:
-        await self_text_channel.send(f"Let's study for {pomodoros} pomodoros together!")
+        await self_text_channel.send(f"Let's study for {pomodoros} pomodoros together! The timer is ticking.")
 
     for category in guild.categories:
         if category.name == "study":
