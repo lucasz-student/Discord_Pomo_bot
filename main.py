@@ -243,7 +243,7 @@ async def create_private(ctx, name="", pomodoros=1):
                 run = False
                 break
             elif count % 4 != 0:
-                await asyncio.sleep(1500)
+                await asyncio.sleep(1200)
                 await text_channel.send("5 minutes left! :alarm_clock:\nYou can do it!")
                 await asyncio.sleep(300)
                 await text_channel.send("Take a 5 minute break!")
@@ -253,7 +253,7 @@ async def create_private(ctx, name="", pomodoros=1):
                 count = count - 1
 
             elif count % 4 == 0:
-                await asyncio.sleep(1500)
+                await asyncio.sleep(1200)
                 await text_channel.send("5 minutes left! :alarm_clock:\nYou got this!")
                 await asyncio.sleep(300)
                 await text_channel.send("Take a 15 minute break!")
@@ -337,7 +337,7 @@ async def create_private(ctx, pomodoros=1):
                 run = False
                 break
             elif count % 4 != 0:
-                await asyncio.sleep(1500)
+                await asyncio.sleep(1200)
                 await self_text_channel.send(
                     "5 minutes left! :alarm_clock:\nWe can do it!"
                 )
@@ -349,7 +349,7 @@ async def create_private(ctx, pomodoros=1):
                 count = count - 1
 
             elif count % 4 == 0:
-                await asyncio.sleep(1500)
+                await asyncio.sleep(1200)
                 await self_text_channel.send(
                     "Only 5 minutes left! :alarm_clock:\nWe've got this!"
                 )
