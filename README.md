@@ -18,7 +18,7 @@ The functions, and other details about usageinclude:
   <li>!help, sending embed with details of Pomobot</li>
   <li>!help 'command', sending message with details of command</li>
   <li>!self, creating a private text and voice room for the command's author, taking the argument (pomodoro count). The author of the message, members of the study role, and server admins/owners can view the room.</li>
-  <li>!study_with, creating a private text and voice room for the command's author and another user, taking the arguments (user_nick/user_display_name, pomodoro count). The author of the message along with the targeted yser, members of the study role, and server admins/owners can view the room.</li>
+  <li>!study_with, creating a private text and voice room for the command's author and another user, taking the arguments (user_nick/user_display_name, pomodoro count). The author of the message along with the targeted user, members of the study role, and server admins/owners can view the room.</li>
   <li>!quit, quiting a study session/channel under the study category, deleting both text and voice channels</li>
   <li>There is a 150 second cooldown for each user dedicated to the !self and !study_with command to prevent spam</li>
   <li>Administrators and owners can view and join private channels, but the default role cannot.</li>
