@@ -181,9 +181,14 @@ async def create_private(ctx, name="", pomodoros=1):
                     "Need a timer by yourself? Run the '!self' command in the server."
                 )
                 return
+
+    private = await var.create_dm()
+    await private.send(f"Hey! Study with {author} in {guild}.")
+
     for role in guild.roles: 
         if role.name == "Students":
             study_role = role 
+
 
     overwrites = {
         guild.default_role: discord.PermissionOverwrite(read_messages=False, connect=False),
@@ -355,6 +360,7 @@ async def create_private(ctx, pomodoros=1):
 
 
 @bot.command(name="quit")
+@commands.cooldown(1, 100, commands.BucketType.user)
 async def quit(ctx):
     guild = ctx.guild
     channel = ctx.message.channel
