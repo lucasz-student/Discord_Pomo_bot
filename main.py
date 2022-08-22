@@ -183,7 +183,7 @@ async def create_private(ctx, name="", pomodoros=1):
                 return
 
     private = await var.create_dm()
-    await private.send(f"Hey! Study with {author} in {guild}.")
+    await private.send(f"Hey! Study with {author} in {guild}. !quit the channel if you're not in the mood.")
 
     for role in guild.roles: 
         if role.name == "Students":
