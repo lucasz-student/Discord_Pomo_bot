@@ -45,7 +45,7 @@ async def help(ctx):
 
     em.add_field(
         name="Description",
-        value="PomoBot is a project to help you study! It applies the Pomodoro study method: you completely focus for 25 minutes, but get a 5 minute break afterward. This 30 minute session is 1 'Pomodoro.' After 4 pomodoros, you get a long break of 15 minutes. There's a server scoreboard to track each user's total Pomodoros consumed!",
+        value="PomoBot is a project to help you study! It applies the Pomodoro study method: you completely focus for 25 minutes but get a 5-minute break afterward. This 30 minute session is 1 'Pomodoro.' After 4 pomodoros, you get a long break of 15 minutes. There's a server scoreboard to track each user's total Pomodoros consumed!",
         inline=False,
     )
 
@@ -247,7 +247,8 @@ async def create_private(ctx, name="", pomodoros=1):
                 await asyncio.sleep(300)
                 await text_channel.send("Take a 5 minute break!")
                 await asyncio.sleep(900)
-                await text_channel.send("Now let's focus again.:books:")
+                if count > 1: 
+                    await text_channel.send("Now let's focus again.:books:")
                 count = count - 1
 
             elif count % 4 == 0:
@@ -256,7 +257,8 @@ async def create_private(ctx, name="", pomodoros=1):
                 await asyncio.sleep(300)
                 await text_channel.send("Take a 15 minute break!")
                 await asyncio.sleep(900)
-                await text_channel.send("Now try your best to concentrate. :books:")
+                if count > 1: 
+                    await text_channel.send("Now try your best to concentrate. :books:")
                 count = count - 1
 
     await sleep()
@@ -340,9 +342,9 @@ async def create_private(ctx, pomodoros=1):
                 await asyncio.sleep(300)
                 await self_text_channel.send("Let's take a 5 minute break!")
                 await asyncio.sleep(300)
-                await self_text_channel.send("Now let's focus again.:books:")
+                if count > 1: 
+                    await self_text_channel.send("Now let's focus again.:books:")
                 count = count - 1
-                print(count)
 
             elif count % 4 == 0:
                 await asyncio.sleep(1500)
@@ -352,9 +354,9 @@ async def create_private(ctx, pomodoros=1):
                 await asyncio.sleep(300)
                 await self_text_channel.send("How's a 15 minute break sound?")
                 await asyncio.sleep(900)
-                await self_text_channel.send("Now try our best to concentrate. :books:")
+                if count > 1: 
+                    await self_text_channel.send("Now try our best to concentrate. :books:")
                 count = count - 1
-                print(count)
 
     await sleep()
 
